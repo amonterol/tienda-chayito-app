@@ -1,0 +1,126 @@
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+
+    
+       
+    <main>
+
+      <section className="hero  is-fullheight">
+        <div className="container has-text-centered mt-5">
+            <div className="column is-4 is-offset-4">
+                <h3 className="title has-text-black">Crear una cuenta</h3>
+                  
+                <div className="box">
+                    <form >
+                        <div className="field">
+                          <div className="control">
+                            <input
+                              className="input is-medium"
+                              type="text"
+                              placeholder="Nombre"
+                              name="name"
+                              {...register("name", {
+                                required: "Required",
+                              })}
+                            />
+                          </div>
+                        </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            className="input is-medium"
+                            type="text"
+                            placeholder="Username"
+                            name="username"
+                            {...register("username", {
+                              required: "Required",
+                            })}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            className="input is-large"
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            {...register("email", {
+                              required: "Required",
+                            })}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            className="input is-large"
+                            type="password"
+                            placeholder="Contraseña"
+                            name="password"
+                            {...register("password", {
+                              required: "Required",
+                            })}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            className="input is-large"
+                            type="password"
+                            placeholder="Confirmar contraseña"
+                            name="passwordConfirmation"
+                            {...register("passwordConfirmation", {
+                              required: "Required",
+                            })}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <label className="checkbox">
+                            <input
+                              type="checkbox"
+                              className="mr-2"
+                              name="condiciones"
+                              {...register("condiciones", {
+                                required: "Required",
+                              })}
+                            />
+                            <a href="#">
+                              He leído y estoy de acuerdo con los términos y condiciones
+                            </a>
+                          </label>
+                        </div>
+                      </div>
+
+                        <button
+                          type="submit"
+                          className="button is-block is-primary is-large is-fullwidth"
+                        >
+                          Crear cuenta
+                        </button>
+                        <div className="field">
+                          <div className="control">
+                            <label className="content">
+                              <a href="#">¿Ya tiene una cuenta? Entrar aquí</a>
+                            </label>
+                          </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+<%- include('../includes/end.ejs') %>

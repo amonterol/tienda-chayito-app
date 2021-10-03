@@ -1,0 +1,60 @@
+<%- include('../includes/head.ejs') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />    
+
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main class="container "> 
+    
+       
+        <div class="container mt-6">
+            
+            <% if (products.length > 0) { %>
+                      
+                    <% products.forEach(p => { %>
+                        <div class="columns is-mobile is-multiline is-centered">
+                            <div class="column is-one-fifths  "></div>
+                            <div class="column is-one-fifths ">
+                                <div><%= p.productId.title %></div>
+                                   
+                            </div>
+                            <div class="column is-one-fifths ">
+                                
+                                <div>Quantity: <%= p.quantity %></div>
+                                  
+                            </div>
+                            <div class="column is-one-fifths ">
+                               
+                                <div> 
+                                    <form action="/cart-delete-item" method="POST">
+                                        <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                                        <button class="btn danger" type="submit">Delete</button>
+                                    </form>
+                                </div>    
+                            </div>
+                            <div class="column is-one-fifths  "></div>
+                          </div>
+                    <% }) %>
+             
+           
+            <hr>
+            <div class="columns is-mobile is-multiline is-centered mb-6">
+                <div class="column is-6 is-offset-3">
+                    <form action="/create-order" method="POST">
+                        <button type="submit" class="button">Order Now!</button>
+                    </form>
+                </div>
+            </div>
+                
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+       
+        </div>
+  </main>
+</body>
+</html>

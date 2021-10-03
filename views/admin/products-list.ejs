@@ -1,0 +1,48 @@
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+    
+    <main class="container">
+      <% if (prods.length > 0) { %>
+
+      <div class="content is-large">
+        <h1>LISTA DE PRODUCTOS</h1>
+      </div>
+
+      <div class="columns is-multiline">
+        <% for ( let product of prods ) { %>
+
+          <div class="column is-one-quarter-desktop is-half-tablet">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by5">
+                  <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-info"> <%= product.title %> </span>
+                </div>
+              </div>
+              <footer class="card-footer is-justify-content-center">
+              
+                  <a href="/admin/edit-product/<%= product.id %>" class="button is-ghost" type="submit">Edit</a>
+                  <a href="/admin/delete-product/<%= product.id %>" class="button is-ghost" type="submit">Eliminar</a>
+               
+              </footer>
+            </div>
+          </div>
+
+        <% } %>
+      </div>
+
+      <% } else { %>
+      <h1 class="is-size-1 has-text-centered ">NOT PRODUCT FOUND</h1>
+      <% } %>
+    </main>
+    <%- include("../includes/end.ejs") %>

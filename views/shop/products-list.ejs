@@ -1,0 +1,45 @@
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+    
+    <main class="container mt-3 ">
+      <% if (prods.length > 0) { %>
+
+      <div class="columns is-multiline">
+        <% for ( let product of prods ) { %>
+
+          <div class="column is-one-quarter-desktop is-half-table  ">
+            <div class="card">
+              <div class="card-image ">
+                <figure class="image is-4by5">
+                  <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+                </figure>
+                <div class="card-content is-overlay is-clipped ">
+                  <span class="tag is-info"> <%= product.title %> </span>
+                </div>
+              </div>
+
+              <footer class="card-footer is-justify-content-space-evenly">
+                <a href="/products/<%= product.id %>" class="button is-ghost">Ver detalles</a>
+                <% if (isAuthenticated) { %>
+                  <%- include("../includes/add-to-cart.ejs",{product: product}) %>
+                <% } %>
+              </footer>
+            </div>
+          </div>
+
+        <% } %>
+      </div>
+
+      <% } else { %>
+      <h1 class="is-size-1 has-text-centered ">NOT PRODUCT FOUND</h1>
+      <% } %>
+    </main>
+    <%- include("../includes/end.ejs") %>

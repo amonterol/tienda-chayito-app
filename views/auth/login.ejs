@@ -1,0 +1,120 @@
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+
+    <main>
+      
+      <form action="/login" method="POST">
+      
+          <div class="columns is-mobile is-multiline is-centered mt-6">
+            
+            <div class="column   "></div>
+            
+            <div class="column is-one-third ">
+              <h3 class="has-text-centered is-size-3 has-text-weight-semibold ">Iniciar sesión</h3>
+            </div>
+
+            <div class="column   "></div>
+          </div> 
+
+          <div class="columns is-mobile is-multiline is-centered">
+          
+                <div class="column   "></div>
+                
+                    <div class="column is-one-third ">
+                      
+                        <div class="field">
+                          <label class="label" htmlFor="exampleInputEmail1">Correo electrónico</label>
+                          <div class="control">
+                            <input
+                              type="email"
+                              class="input"
+                              id="exampleInputEmail1"
+                              aria-describedby="emailHelp"
+                              placeholder="Ingrese su correo electrónico"
+                            />
+                          </div>
+                        </div>
+                    </div>          
+                <div class="column   "></div>
+          </div> 
+
+          <div class="columns is-mobile is-multiline is-centered">
+            
+                <div class="column   "></div>
+                
+                <div class="column is-one-third ">
+                    <div class="field">
+                      <label  class="label" htmlFor="exampleInputEmail1">Contraseña</label>
+                      <div class="control"> 
+                        <input
+                          class="input"
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Ingrese su contraseña"
+                        />
+                      </div>
+                    </div>
+                  
+                </div>
+                
+                <div class="column   "></div>
+          </div>    
+                
+          
+          
+          <div class="columns is-mobile is-multiline is-centered">
+              
+              <div class="column   "></div>
+              
+              <div class="column isthree-fifths ">
+                  <p class="my-2 justify-content-end">
+                    ¿Olvido su contraseña?
+                    <Link href="/">
+                      <a > Recuperar contraseña</a>
+                    </Link>
+                  </p>
+              </div>
+              
+              <div class="column   "></div>
+
+          </div>   
+            
+            <div class="columns is-mobile is-multiline  is-centered">
+              
+              <div class="column"></div>
+              
+              <div class="column is-one-third  is-centered ">
+                <button type="submit" class="button is-dark mx-6">
+                  Ingresar
+                </button>
+        
+                <div class="has-text-grey">
+                  <p class="my-2">
+                    ¿Nuevo cliente?
+                    <Link href="/register">
+                      <a > Crear cuenta</a>
+                    </Link>
+                  </p>
+                </div>
+                
+              </div>
+              
+              <div class="column"></div>
+            </div>
+        
+        </form>      
+       
+ </Main>
+
+   
+<%- include('../includes/end.ejs') %>
+

@@ -1,0 +1,80 @@
+
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+    <main class="container"> 
+         <div class="columns mt-4"> 
+            <div class="column is-half is-offset-one-quarter "> 
+              
+              <form  action="/admin/add-product" method="POST">
+                
+                <div class="field">
+                  <label class="label"for="nombre">Nombre</label>
+                  <div class="control">
+                    <input class="input" type="text" name="title"  id="title"  placeholder="Ingrese el nombre del producto" required/>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label"for="product_id">SKU</label>
+                  <div class="control">
+                    <input class="input" type="text" name="product_id"  id="product_id"  required/>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="imageUrl">Imagen Url</label>
+                  <div class="control">
+                    <input class="input" type="text" name="imageUrl"  id="imageUrl"  required/>
+                  </div>
+                </div>
+               
+                <div class="field">
+                  <label class="label" for="price">Precio</label>
+                  <div class="control">
+                    <input class="input" type="number" name="price"  id="price"  required/>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="category">Categoría</label>
+                  <div class="control">
+                    <input class="input" type="text" name="category"  id="category" required/>
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <label class="label" for="subcategory">Subcategoría</label>
+                  <div class="control">
+                    <input class="input" type="text" name="subcategory"  id="subcategory" required/>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="description">Descripción</label>
+                  <div class="control">
+                    <textarea class="input" type="text" name="description"  id="description"/></textarea>
+                  </div>
+                </div>
+
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-link" type="submit">Agregar</button>
+                  </div>
+                  <div class="control">
+                    <button class="button is-link is-light" type="submit">Cancel</button>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+    <%- include("../includes/end.ejs") %>

@@ -1,0 +1,83 @@
+
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+    <main class="container"> 
+         <div class="columns mt-4"> 
+            <div class="column is-half is-offset-one-quarter "> 
+              
+              <form  action="/admin/edit-product" method="POST">
+
+                <div class="field">
+                  <label class="label"for="nombre">Nombre</label>
+                  <div class="control">
+                    <input class="input" type="text" name="title"  id="title"  value="<%= product.title %>"  required/>
+                  </div>
+                </div>
+
+           
+               
+                <div class="field">
+                  <label class="label" for="imageUrl">Imagen Url</label>
+                  <div class="control">
+                    <input class="input" type="text" name="imageUrl"  value="<%= product.imageUrl %>"  id="imageUrl"  required/>
+                  </div>
+                </div>
+               
+                <div class="field">
+                  <label class="label" for="price">Precio</label>
+                  <div class="control">
+                    <input class="input" type="number" name="price"  id="price"  value="<%= product.price %>"  required/>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="category">Categoría</label>
+                  <div class="control">
+                    <input class="input" type="text" name="category"  id="category" value="<%= product.category %>"  required/>
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <label class="label" for="subcategory">Subcategoría</label>
+                  <div class="control">
+                    <input class="input" type="text" name="subcategory"  id="subcategory" value="<%= product.subcategory %>" required/>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="description">Descripción</label>
+                  <div class="control">
+                    <textarea  class="textarea" placeholder="5 lines of textarea" rows="5" name="description"  id="description" > <%= product.description %> </textarea>
+                  </div>
+                </div>
+
+                <div class="field is-grouped">
+                  <div class="control">
+                    <<input
+                    type="hidden"
+                    name="productId"
+                    id="productId"
+                    value="<%= product.id %>"
+                  />
+                    <button class="btn is-link" type="submit">Actualizar</button>
+                  </div>
+                  <div class="control">
+                    <button class="button is-link is-light" type="submit">Cancelar</button>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+    <%- include("../includes/end.ejs") %>

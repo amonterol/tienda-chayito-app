@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />    
+
+</head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main class="container "> 
+          <div class="columns "> 
+             <div class="column is-half is-offset-one-quarter is-justify-content-center  "> 
+        
+                <h1><%= product.title %></h1>
+                <hr>
+                <div class="card-image">
+                  <figure class="image is-3by2">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>"/>
+                  </figure>
+                 </div>
+                <div>
+                  
+                </div>
+                <div>
+                  <h2><%= product.price %> </h2>
+                </div>
+                <div>
+                  <h2><%= product.category %> </h2>
+                </div>
+                <div>
+                  <h2><%= product.subcategory %> </h2>
+                </div>
+                <div>
+                  <p><%= product.description %> </p>
+                </div>
+                <% if (isAuthenticated) { %>
+                  <%- include("../includes/add-to-cart.ejs",{product: product}) %>
+                <% } %>
+
+              </div>
+             
+            
+            </div>
+            
+              
+        </main>
+            
+           
+        
+        <%- include('../includes/end.ejs') %>
