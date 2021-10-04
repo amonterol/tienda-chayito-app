@@ -6,13 +6,22 @@
   href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
   />
   </head>
+
   <body>
     <%- include("../includes/navigation.ejs") %>
 
     <main>
-      
+      <% if (errorMessage) { %>
+        <div class="notification is-warning m-auto" id="alerta">
+          <button class="delete" ></button>
+          <%= errorMessage %>
+        </div>
+        
+        
+    <% } %>
+   
       <form action="/login" method="POST">
-      
+         
           <div class="columns is-mobile is-multiline is-centered mt-6">
             
             <div class="column   "></div>

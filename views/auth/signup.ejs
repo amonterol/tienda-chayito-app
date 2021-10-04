@@ -19,6 +19,13 @@
                 <h3 class="title has-text-black">Crear una cuenta</h3>
                   
                 <div class="box">
+                  <% if (errorMessage) { %>
+                    <div class="notification is-warning m-auto" style="width: 90;"">
+                      <button class="delete"></button>
+                      <%= errorMessage %>
+                    </div>
+                    
+                <% } %>
                   <form  action="/signup" method="POST">
                         <div class="field">
                           <div class="control">
