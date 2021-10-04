@@ -13,7 +13,7 @@
     <main>
       <% if (errorMessage) { %>
         <div class="notification is-warning m-auto" id="alerta">
-          <button class="delete" ></button>
+          <button class="delete" onclick="this.parentElement.style.display='none'" ></button>
           <%= errorMessage %>
         </div>
         
