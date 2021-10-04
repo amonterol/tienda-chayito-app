@@ -5,22 +5,25 @@ exports.getLogin = (req, res, next) => {
   res.render("auth/login", {
     path: "/login",
     pageTitle: "Login",
-    isAuthenticated: false,
   });
 };
 
 exports.postLogin = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+
+  console.log(`El usuario es  es ${email}`);
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
-        req.flash("error", "Invalid email or password.");
+        //req.flash("error", "Invalid email or password.");
+
         return res.redirect("/login");
       }
       bcrypt
         .compare(password, user.password)
         .then((doMatch) => {
+          console.log(`La comparcion del passwor es ${doMatch}`);
           if (doMatch) {
             req.session.isLoggedIn = true;
             req.session.user = user;
@@ -90,4 +93,11 @@ exports.postSignup = (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+exports.postLogout = (req, res, next) => {
+  req.session.destroy((err) => {
+    console.log(err);
+    res.redirect("/");
+  });
 };

@@ -31,12 +31,13 @@
                     <div class="column is-one-third ">
                       
                         <div class="field">
-                          <label class="label" htmlFor="exampleInputEmail1">Correo electrónico</label>
+                          <label class="label" htmlFor="email">Correo electrónico</label>
                           <div class="control">
                             <input
                               type="email"
                               class="input"
-                              id="exampleInputEmail1"
+                              id="email"
+                              name="email"
                               aria-describedby="emailHelp"
                               placeholder="Ingrese su correo electrónico"
                             />
@@ -52,13 +53,13 @@
                 
                 <div class="column is-one-third ">
                     <div class="field">
-                      <label  class="label" htmlFor="exampleInputEmail1">Contraseña</label>
+                      <label  class="label" htmlFor="password">Contraseña</label>
                       <div class="control"> 
                         <input
                           class="input"
                           type="password"
-                          class="form-control"
-                          id="exampleInputPassword1"
+                          name="password"
+                          id="password"
                           placeholder="Ingrese su contraseña"
                         />
                       </div>
@@ -93,6 +94,7 @@
               <div class="column"></div>
               
               <div class="column is-one-third  is-centered ">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <button type="submit" class="button is-dark mx-6">
                   Ingresar
                 </button>

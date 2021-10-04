@@ -4,14 +4,9 @@ const router = express.Router();
 
 router.get("/login", authController.getLogin);
 
-router.post("/login", function (req, res) {
-  authController.postLogin;
-});
-/*
-router.post("/logout", function (req, res) {
-  authController.postLogout;
-});
-*/
+router.post("/login", authController.postLogin);
+
+router.post("/logout", authController.postLogout);
 
 router.get("/signup", authController.getSignup);
 

@@ -45,6 +45,7 @@
             <div class="columns is-mobile is-multiline is-centered mb-6">
                 <div class="column is-6 is-offset-3">
                     <form action="/create-order" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <button type="submit" class="button">Order Now!</button>
                     </form>
                 </div>

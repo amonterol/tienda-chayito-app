@@ -67,9 +67,11 @@
                     id="productId"
                     value="<%= product.id %>"
                   />
-                    <button class="btn is-link" type="submit">Actualizar</button>
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                  <button class="btn is-link" type="submit">Actualizar</button>
                   </div>
                   <div class="control">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <button class="button is-link is-light" type="submit">Cancelar</button>
                   </div>
                 </div>
