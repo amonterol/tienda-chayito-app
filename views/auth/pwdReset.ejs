@@ -1,0 +1,58 @@
+
+<%- include("../includes/head.ejs") %>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />
+  </head>
+
+  <body>
+    <%- include("../includes/navigation.ejs") %>
+
+    <main>
+
+      <div class="container has-text-centered mt-5">
+        <div class="column is-4 is-offset-4">
+            <h3 class="title has-text-black">Recuperar Contraseña</h3>
+
+            <div class="box">
+                <% if (errorMessage) { %>
+                  <div class="notification is-warning m-auto"  id="alerta">
+                    <button class="delete" onclick="this.parentElement.style.display='none'" ></button>
+                    <%= errorMessage %>
+                  </div>
+                  
+                  
+                    <% } %>
+   
+                <form action="/pwdReset" method="POST">
+                    <div class="field">
+                        <div class="control">
+                          <input
+                              type="email"
+                              class="input"
+                              id="email"
+                              name="email"
+                              placeholder="Correo electrónico"
+                          />
+                        </div>
+                      </div>
+                              
+                      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                          <button
+                            type="submit"
+                             class="button is-block is-primary is-mediym is-fullwidth"
+                          >
+                            Recuperar
+                          </button>
+                 
+                    </form>      
+                  </div>
+                </div>
+              </div>
+    </main>
+
+   
+<%- include('../includes/end.ejs') %>
+

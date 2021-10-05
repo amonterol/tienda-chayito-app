@@ -13,24 +13,24 @@
        
     <main>
 
-      <section class="hero  is-fullheight">
-        <div class="container has-text-centered mt-5">
+      <div class="container has-text-centered mt-5">
             <div class="column is-4 is-offset-4">
                 <h3 class="title has-text-black">Crear una cuenta</h3>
                   
                 <div class="box">
                   <% if (errorMessage) { %>
-                    <div class="notification is-warning m-auto" style="width: 90;"">
-                      <button class="delete"></button>
+                    <div class="notification is-warning m-auto" >
+                      <button class="delete" onclick="this.parentElement.style.display='none'" ></button>
                       <%= errorMessage %>
                     </div>
                     
-                <% } %>
+                    <% } %>
+               
                   <form  action="/signup" method="POST">
                         <div class="field">
                           <div class="control">
                             <input
-                              class="input is-medium"
+                              class="input"
                               type="text"
                               placeholder="Nombre"
                               name="name"
@@ -43,7 +43,7 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input is-large"
+                            class="input"
                             type="email"
                             placeholder="Email"
                             name="email"
@@ -55,7 +55,7 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input is-large"
+                            class="input"
                             type="password"
                             placeholder="Contraseña"
                             name="password"
@@ -66,7 +66,7 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input is-large"
+                            class="input"
                             type="password"
                             placeholder="Confirmar contraseña"
                             name="confirmPassword"
@@ -110,7 +110,7 @@
                     
                 </div>
             </div>
-        </div>
-      </section>
+      </div>
+      
     </main>
 <%- include('../includes/end.ejs') %>

@@ -16,12 +16,14 @@
     "bcryptjs": "^2.4.3",
     "bulma": "^0.9.3",
     "connect-flash": "^0.1.1",
-    "connect-mongodb-session": "^3.1.0",
+    "connect-mongodb-session": "^3.1.1",
     "csurf": "^1.11.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mongoose": "^6.0.8"
+    "express-validator": "^6.12.2",
+    "mongoose": "^6.0.8",
+    "nodemailer": "^6.6.5"
   }
 }

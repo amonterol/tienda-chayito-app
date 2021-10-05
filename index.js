@@ -48,7 +48,7 @@ app.use((req, res, next) => {
   }
   User.findById(req.session.user._id)
     .then((user) => {
-      console.log(`Index.js> ${user._id}`);
+      console.log(`En el Index.js  el usuario es> ${user._id}`);
       req.user = user;
       next();
     })
