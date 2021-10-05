@@ -26,15 +26,16 @@
                   
                     <% } %>
    
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" novalidate>
                     <div class="field">
                         <div class="control">
                           <input
                               type="email"
-                              class="input"
+                              class="<%=  validationErrors.find(e => e.param === 'email') ? 'input  is-danger has-background-danger' : 'input ' %>"
                               id="email"
                               name="email"
                               placeholder="Correo electrónico"
+                              value="<%= oldInput.email %>"
                           />
                         </div>
                       </div>
@@ -42,11 +43,12 @@
                       <div class="field">
                         <div class="control">  
                                   <input
-                                    class="input"
+                                  class="<%=  validationErrors.find(e => e.param === 'password') ? 'input  is-danger has-background-danger' : 'input ' %>"
                                     type="password"
                                     name="password"
                                     id="password"
                                     placeholder="Contraseña"
+                                    value="<%= oldInput.password %>"
                                   />
                         </div>
                       </div>

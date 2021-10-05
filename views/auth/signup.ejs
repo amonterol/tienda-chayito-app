@@ -26,7 +26,7 @@
                     
                     <% } %>
                
-                  <form  action="/signup" method="POST">
+                  <form  action="/signup" method="POST"  novalidate >
                         <div class="field">
                           <div class="control">
                             <input
@@ -35,6 +35,7 @@
                               placeholder="Nombre"
                               name="name"
                               id="name"
+                              value="<%= oldInput.name %>"
                              
                             />
                           </div>
@@ -43,11 +44,13 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input"
+                           
+                            class="<%=  validationErrors.find(e => e.param === 'email') ? 'input  is-danger has-background-grey-light' : 'input ' %>"
                             type="email"
                             placeholder="Email"
                             name="email"
                             id="email"
+                            value="<%= oldInput.email %>"
                           
                           />
                         </div>
@@ -55,10 +58,11 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input"
+                            class="<%=  validationErrors.find(e => e.param === 'password') ? 'input  is-danger has-background-grey-light' : 'input ' %>"
                             type="password"
                             placeholder="Contraseña"
                             name="password"
+                            value="<%= oldInput.password %>"
                           
                           />
                         </div>
@@ -66,11 +70,12 @@
                       <div class="field">
                         <div class="control">
                           <input
-                            class="input"
+                            class="<%=  validationErrors.find(e => e.param === 'confirmPassword') ? 'input  is-danger has-background-grey-light' : 'input ' %>"
                             type="password"
                             placeholder="Confirmar contraseña"
                             name="confirmPassword"
                             id="confirmPassword"
+                            value="<%= oldInput.confirmPassword %>"
                             
                           />
                         </div>
