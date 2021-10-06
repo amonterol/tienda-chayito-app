@@ -1,4 +1,6 @@
 require("dotenv").config();
+
+//Paquetes de terceros
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
@@ -8,13 +10,14 @@ const errorController = require("./controllers/errorController");
 const csrf = require("csurf");
 const flash = require("connect-flash");
 
+//Importamos las routes de la aplicacion
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
-
 const User = require("./models/user");
-const port = 3000;
 
+//Inicializamos variables requeridas
+const port = 3000;
 const app = express();
 
 const store = new MongoDBStore({

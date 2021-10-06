@@ -7,7 +7,7 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  product_id: {
+  sku: {
     type: String,
     required: true,
   },

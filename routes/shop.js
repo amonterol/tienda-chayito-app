@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const shopController = require("../controllers/shopController");
 const isAuth = require("../middleware/is-auth");
+const { body } = require("express-validator");
 
 router.get("/", shopController.getHomePage);
 
