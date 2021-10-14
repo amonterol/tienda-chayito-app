@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 const Order = require("../models/order");
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 1;
 
 //PRODUCTS CONTROLLERS
 exports.getProducts = (req, res, next) => {
