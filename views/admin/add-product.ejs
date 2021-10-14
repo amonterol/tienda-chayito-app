@@ -46,13 +46,28 @@
                     required/>
                   </div>
                 </div>
+              <!-- 
                 <div class="field">
                   <label class="label" for="imageUrl">Imagen Url</label>
                   <div class="control">
                     <input class="input" type="text" name="imageUrl"  id="imageUrl"  value="<%= oldInput.imageUrl %>" required/>
                   </div>
                 </div>
-               
+              --> 
+                <div class="field">
+                  <label class="label" for="imageUrl">Imagen Url</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="file"
+                      name="imageUrl" 
+                      id="imageUrl"
+                      value="<%= oldInput.imageUrl %>"
+                    />
+                  </div>
+                </div>
+
+
                 <div class="field">
                   <label class="label" for="price">Precio</label>
                   <div class="control">

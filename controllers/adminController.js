@@ -73,7 +73,31 @@ exports.postAddProduct = (req, res, next) => {
       res.redirect("/admin/products");
     })
     .catch((err) => {
-      console.log(err);
+      //First way to handle errors
+      //   return res.status(500).render("admin/add-product", {
+      //     pageTitle: "Add Product",
+      //     path: "/admin/add-product",
+      //     errorMessage: "Se produjo un fallo en la conexión con la base de datos, por favor inténtelo nuevamente!",
+      //     oldInput: {
+      //       title: title,
+      //       sku: sku,
+      //       imageUrl: imageUrl,
+      //       price: price,
+      //       category: category,
+      //       subcategory: subcategory,
+      //       description: description,
+      //     },
+      //     validationErrors: [],
+      //   });
+      // });
+      //or
+      //Second way to handle errors
+      //res.redirect("/500");
+      //or
+      //Third way to handle errors
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
 
@@ -126,7 +150,11 @@ exports.getEditProduct = (req, res, next) => {
         //termina nuevo
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
 exports.postEditProduct = async (req, res) => {
@@ -188,7 +216,10 @@ exports.postEditProduct = async (req, res) => {
     console.log("UPDATED PRODUCT!");
     res.redirect("/admin/products");
   } catch (err) {
-    return res.status(500).json({ msg: err.message });
+    // return res.status(500).json({ msg: err.message });
+    const error = new Error(err);
+    error.httpStatusCode = 500;
+    return next(error);
   }
 };
 
@@ -205,7 +236,11 @@ exports.getProducts = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
 exports.getDeleteProduct = (req, res, next) => {
@@ -225,7 +260,11 @@ exports.getDeleteProduct = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
 exports.postDeleteProduct = async (req, res) => {
