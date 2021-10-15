@@ -93,7 +93,7 @@ app.use(errorController.get404Page);
 //Error handle middleware
 app.use((error, req, res, next) => {
   res.status(500).render("500", {
-    pageTitle: "Erro!",
+    pageTitle: "Error!",
     path: "/500",
     isAuthenticated: req.session.isLoggedIn,
   });

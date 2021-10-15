@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+  />    
+
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main class="container "> 
+    
+        <div class="container mt-6">
+            
+            <ul class="column is-one-fifths">
+              <% products.forEach(p => { %>
+                  <li class="column is-one-fifths">
+                      <h1><%= p.productId.title %></h1>
+                      <h2>Quantity: <%= p.quantity %></h2>
+                  </li>
+              <% }) %>
+            </ul>
+            <div class="column is-centered">
+                <h2>Total: <%= totalSum %></h2>
+            </div>
+            <div class="column is-centered">
+                <button id="order-btn" class="button">ORDER</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                    var stripe = Stripe("pk_test_51JkeJFJULPYESWbVUgj4d8i9xcKxjiJc3qFhaiyXCqCxIKV662Adwyp9Wal1qmioGCzyYPNubfmQKFwfHfWE3xiR00vZKJDgHD");
+                    var orderBtn = document.getElementById("order-btn");
+                    orderBtn.addEventListener("click", function() {
+                        stripe.redirectToCheckout({
+                            sessionId: '<%= sessionId %>'
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+  </main>
+</body>
+</html>

@@ -297,6 +297,23 @@ exports.postDeleteProduct = async (req, res) => {
 };
 
 /*
+exports.deleteProduct = async (req, res) => {
+  try {
+    const prodId = req.params.productId;
+    console.log(` postDeleteProduct ${prodId}`);
+    let doc = await Product.findByIdAndDelete({ _id: prodId });
+    console.log(`Producto eliminado ${doc._id}`);
+    //res.json({ msg: "Deleted a Product" });
+    console.log("UPDATED PRODUCT!");
+    //res.redirect("/admin/products");
+    res.status(200).json({ message: "El producto fue eliminado!" });
+  } catch (err) {
+    return res.status(500).json({ message: "El producto no fue eliminado!" });
+  }
+};
+*/
+
+/*
 
 
 exports.postDeleteProduct = (req, res, next) => {
